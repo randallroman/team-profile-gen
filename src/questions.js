@@ -1,6 +1,6 @@
 const inquirer = require('inquirer');
 const Manager = require('../lib/manager');
-const managerHtml = require('../dist/output/manager_template');
+const managerHtml = require('./manager_template');
 let completeHtml = "";
 const fs = require('fs');
 

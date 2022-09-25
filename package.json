@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
-    "start": "nodemon ./src/questions.js"
+    "test": "jest"
   },
   "dependencies": {
     "inquirer": "^8.2.4",
