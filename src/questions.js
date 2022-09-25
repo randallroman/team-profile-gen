@@ -83,7 +83,7 @@ function createManager() {
 
         let managerObj = new Manager(managerName, managerId, managerEmail, managerOfficeNumber);
         console.log(managerObj);
-        completeHtml += managerHtml(managerObj);
+        // completeHtml += managerHtml(managerObj);
         nextSteps()
     }).catch(err => {
         console.error(err);
