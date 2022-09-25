@@ -22,7 +22,7 @@ var chooChoo = new Engineer('Franklin', 9, 'totally fake', 'notagit');
 chooChoo.getName();
 chooChoo.getId();
 chooChoo.getEmail();
-chooChoo.getGitHub();
+chooChoo.getGithub();
 
 
 var peon = new Intern('Junior', 3.14, 'so so fake', 'NU');
