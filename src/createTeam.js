@@ -1,25 +1,26 @@
 const Manager = require('../lib/manager');
 const Engineer = require("../lib/engineer");
 const Intern = require('../lib/intern');
+const inquirer = require('inquirer');
+const questions = require('./questions');
 
 function createManager() {
-    inquirer.prompt(managerQues).then((answers) => {
+    inquirer.prompt(questions('manager')).then((answers) => {
         let managerName = answers.name;
         let managerId = answers.id;
         let managerEmail = answers.id;
         let managerOfficeNumber = answers.officeNum;
 
         let managerObj = new Manager(managerName, managerId, managerEmail, managerOfficeNumber);
-        console.log(managerObj);
         // completeHtml += managerHtml(managerObj);
-        nextSteps()
+        nextSteps();
     }).catch(err => {
         console.error(err);
     })
 }
 
 function createEngineer() {
-    inquirer.prompt(engineerQues).then((answers) => {
+    inquirer.prompt(questions('engineer')).then((answers) => {
         let engineerName = answers.name;
         let engineerId = answers.id;
         let engineerEmail = answers.id;
@@ -35,7 +36,7 @@ function createEngineer() {
 }
 
 function createIntern() {
-    inquirer.prompt(internQues).then((answers) => {
+    inquirer.prompt(questions('intern')).then((answers) => {
         let internName = answers.name;
         let internId = answers.id;
         let internEmail = answers.id;
@@ -50,3 +51,25 @@ function createIntern() {
     })
 }
 
+function nextSteps() {
+    inquirer.prompt(questions('next')).then(answers => {
+        switch (answers.next) {
+            case "Add an intern":
+                createIntern();
+                break;
+
+            case "Add an engineer":
+                createEngineer();
+                break;
+
+            case "Finish building team":
+                generateHtml();
+                break;
+        }
+
+    }).catch(err => {
+        console.error(err);
+    })
+}
+
+module.exports = createManager;
