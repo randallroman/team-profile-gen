@@ -11,7 +11,7 @@ const { createHeader, createCard, createFooter } = require('./createHTML');
         inquirer.prompt(questions('manager')).then((answers) => {
             let managerName = answers.name;
             let managerId = answers.id;
-            let managerEmail = answers.id;
+            let managerEmail = answers.email;
             let managerOfficeNumber = answers.officeNum;
 
             let managerObj = new Manager(managerName, managerId, managerEmail, managerOfficeNumber);
@@ -28,7 +28,7 @@ const { createHeader, createCard, createFooter } = require('./createHTML');
         inquirer.prompt(questions('engineer')).then((answers) => {
             let engineerName = answers.name;
             let engineerId = answers.id;
-            let engineerEmail = answers.id;
+            let engineerEmail = answers.email;
             let engineerGithub = answers.github;
 
             let engineerObj = new Engineer(engineerName, engineerId, engineerEmail, engineerGithub);
@@ -45,12 +45,11 @@ const { createHeader, createCard, createFooter } = require('./createHTML');
         inquirer.prompt(questions('intern')).then((answers) => {
             let internName = answers.name;
             let internId = answers.id;
-            let internEmail = answers.id;
+            let internEmail = answers.email;
             let internSchool = answers.school;
 
             let internObj = new Intern(internName, internId, internEmail, internSchool);
-            // console.log(internObj);
-            // completeHtml += managerHtml(managerObj);
+
             createCard(internObj);
             nextSteps();
         
