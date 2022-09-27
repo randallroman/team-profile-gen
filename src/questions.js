@@ -100,7 +100,7 @@ function questions(type) {
             quests = [];
             break;
     }
-
+    
     return quests;
 }
 
