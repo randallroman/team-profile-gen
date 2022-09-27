@@ -1,8 +1,11 @@
-const Manager = require('../lib/Manager');
+const Manager = require('../lib/manager');
 const Engineer = require("../lib/engineer");
 const Intern = require('../lib/intern');
 const inquirer = require('inquirer');
 const questions = require('./questions');
+// const createHTML = require('./createHTML');
+
+let completeHtml = '';
 
 function createManager() {
     inquirer.prompt(questions('manager')).then((answers) => {
@@ -12,7 +15,7 @@ function createManager() {
         let managerOfficeNumber = answers.officeNum;
 
         let managerObj = new Manager(managerName, managerId, managerEmail, managerOfficeNumber);
-        // completeHtml += managerHtml(managerObj);
+        completeHtml += managerHtml(managerObj);
         nextSteps();
     }).catch(err => {
         console.error(err);
@@ -29,6 +32,7 @@ function createEngineer() {
         let engineerObj = new Engineer(engineerName, engineerId, engineerEmail, engineerGithub);
         console.log(engineerObj);
         // completeHtml += managerHtml(managerObj);
+
         nextSteps()
     }).catch(err => {
         console.error(err);
@@ -43,7 +47,7 @@ function createIntern() {
         let internSchool = answers.school;
 
         let internObj = new Intern(internName, internId, internEmail, internSchool);
-        console.log(internObj);
+        // console.log(internObj);
         // completeHtml += managerHtml(managerObj);
         nextSteps()
     }).catch(err => {
